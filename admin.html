@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Certificate Management</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loginSection" class="login-container">
+        <div class="login-box">
+            <h2><i class="fas fa-lock"></i> Admin Login</h2>
+            <p>Enter password to access admin panel</p>
+            <input type="password" id="adminPassword" placeholder="Enter admin password" class="form-input">
+            <button onclick="adminLogin()" class="btn btn-primary">Login</button>
+            <p class="hint" style="font-size: 12px; color: #999;">Contact administrator for password</p>
+        </div>
+    </div>
+
+    <div id="adminPanel" class="admin-panel" style="display: none;">
+        <header class="admin-header">
+            <div class="container">
+                <div class="admin-nav">
+                    <div class="logo">
+                        <h2>AK INSTITUTE</h2>
+                        <p>Admin Panel</p>
+                    </div>
+                    <div class="admin-actions">
+                        <a href="index.html" class="btn btn-secondary"><i class="fas fa-home"></i> Home</a>
+                        <button onclick="adminLogout()" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="container admin-content">
+            <div class="admin-grid">
+                <div class="admin-sidebar">
+                    <div class="sidebar-card">
+                        <h3><i class="fas fa-plus-circle"></i> Create New Certificate</h3>
+                        <form id="certificateForm" onsubmit="createCertificate(event)">
+                            <div class="form-group">
+                                <label>Student Name</label>
+                                <input type="text" id="studentName" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Course Name</label>
+                                <select id="courseName" class="form-input" required>
+                                    <option value="">Select Course</option>
+                                    <option value="OSHA International">OSHA International</option>
+                                    <option value="IOSH Managing Safely">IOSH Managing Safely</option>
+                                    <option value="Industrial Safety">Industrial Safety</option>
+                                    <option value="Fire Safety">Fire Safety</option>
+                                    <option value="Health Safety">Health Safety</option>
+                                    <option value="Safety Officer Course">Safety Officer Course</option>
+                                    <option value="First Aid">First Aid</option>
+                                    <option value="Advanced Safety">Advanced Safety</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Issue Date</label>
+                                <input type="date" id="issueDate" class="form-input" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fas fa-certificate"></i> Create Certificate
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="stats-cards">
+                        <div class="stat-card">
+                            <i class="fas fa-certificate"></i>
+                            <div>
+                                <h4 id="totalCerts">0</h4>
+                                <p>Total Certificates</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-main">
+                    <div class="main-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-list"></i> All Certificates</h3>
+                            <div class="search-box">
+                                <input type="text" id="searchCert" placeholder="Search by name or ID..." class="form-input" oninput="searchCertificates()">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                        <div class="certificates-table">
+                            <table id="certificatesTable">
+                                <thead>
+                                    <tr>
+                                        <th>Certificate ID</th>
+                                        <th>Student Name</th>
+                                        <th>Course</th>
+                                        <th>Issue Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="certificatesBody">
+                                </tbody>
+                            </table>
+                            <div id="noCertificates" class="no-data">
+                                <i class="fas fa-certificate"></i>
+                                <p>No certificates found. Create your first certificate!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/certificates.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

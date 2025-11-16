@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Certificate - AK Institute</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <h2>AK INSTITUTE</h2>
+                        <p>of Technical Training</p>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="index.html#about" class="nav-link">About</a></li>
+                        <li><a href="index.html#courses" class="nav-link">Courses</a></li>
+                        <li><a href="verify.html" class="nav-link active">Verify Certificate</a></li>
+                        <li><a href="admin.html" class="nav-link">Admin</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="verify-section">
+        <div class="container">
+            <div class="verify-container">
+                <div class="verify-header">
+                    <i class="fas fa-shield-alt"></i>
+                    <h1>Certificate Verification</h1>
+                    <p>Enter the certificate ID to verify authenticity</p>
+                </div>
+
+                <div class="verify-form">
+                    <div class="search-box-large">
+                        <input type="text" id="certificateId" placeholder="Enter Certificate ID (e.g., AK-CERT-123456)" class="form-input-large">
+                        <button onclick="verifyCertificate()" class="btn btn-primary btn-large">
+                            <i class="fas fa-search"></i> Verify Certificate
+                        </button>
+                    </div>
+                </div>
+
+                <div id="verificationResult" class="verification-result" style="display: none;">
+                </div>
+
+                <div class="verify-info">
+                    <div class="info-card">
+                        <i class="fas fa-info-circle"></i>
+                        <h3>How to Verify</h3>
+                        <ol>
+                            <li>Enter the Certificate ID shown on the certificate</li>
+                            <li>Click the "Verify Certificate" button</li>
+                            <li>View the certificate details and status</li>
+                        </ol>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>Why Verify?</h3>
+                        <p>Verification ensures the authenticity of certificates issued by AK Institute of Technical Training and helps prevent fraud.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AK INSTITUTE</h3>
+                    <p>AK INSTITUTE OF TECHNICAL TRAINING (OPC) PRIVATE LIMITED is a group of institute, which is registered Under the Govt. of India, Ministry of Corporate Affairs.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#courses">Courses</a></li>
+                        <li><a href="verify.html">Verify Certificate</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +91 9661506994</li>
+                        <li><i class="fas fa-envelope"></i> info@akinstitute.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Jamshedpur, Jharkhand, India</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AK Institute of Technical Training. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/certificates.js"></script>
+    <script src="js/verify.js"></script>
+</body>
+</html>
