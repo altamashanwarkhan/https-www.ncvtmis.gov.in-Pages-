@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Altamash Anwar Khan's Full Stack Web Developer Portfolio</title>
+    <style>
+      /* General reset and basic styles */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #000000;
+        color: #ffffff;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* Container styles */
+      .container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+      }
+
+      /* Header styles */
+      header {
+        text-align: center;
+        padding: 40px;
+        background-color: #121212;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
+        position: relative;
+        overflow: hidden;
+      }
+
+      header::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(145deg, #121212, #000000);
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
+        z-index: -1;
+        top: 10px;
+        left: 10px;
+      }
+
+      header h1 {
+        font-size: 3em;
+        font-weight: bold;
+        color: #00bfff;
+        text-shadow: 0 0 10px #00bfff;
+        margin: 0;
+      }
+
+      /* Navigation styles */
+      nav {
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      nav ul li a {
+        color: #00bfff;
+        text-decoration: none;
+        padding: 10px 15px;
+        position: relative;
+        transition: color 0.3s, transform 0.3s;
+        font-size: 1.2em;
+      }
+
+      nav ul li a:hover {
+        color: #ffffff;
+        transform: translateY(-3px);
+      }
+
+      /* Section styles */
+      section {
+        background-color: #121212;
+        color: #ffffff;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+        text-align: center;
+      }
+
+      section h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+      }
+
+      .content p,
+      .content ul {
+        margin: 0 0 10px;
+      }
+
+      /* Footer styles */
+      footer {
+        text-align: center;
+        background-color: #121212;
+        color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+        margin-top: 20px;
+      }
+
+      /* Media queries for responsiveness */
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2.5em;
+        }
+
+        nav ul {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        nav ul li a {
+          width: 100%;
+          text-align: center;
+        }
+
+        section,
+        nav,
+        footer {
+          margin: 20px auto;
+          padding: 15px;
+        }
+      }
+
+      /* Link styles for projects */
+      .project a {
+        color: #00bfff;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .project a:hover {
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Altamash Anwar Khan | Full Stack Web Developer</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#languages">Languages</a></li>
+        <li><a href="#computer-skills">Computer Skills</a></li>
+        <li><a href="#programming-languages-skills">Programming Languages Skills</a></li>
+        <li><a href="#academic">Academic Qualifications</a></li>
+        <li><a href="#computer-certifications">Computer Certifications</a></li>
+        <li><a href="#technical-skills">Technical Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <section id="about">
+        <h2>About Me</h2>
+        <div class="content">
+          <p>
+            Hello! My name is Altamash Anwar Khan. I am 21 years old and I am a
+            full stack web developer with over 3 years of experience building
+            dynamic, responsive websites and applications. I am proficient in
+            both frontend and backend technologies, and I have a strong
+            understanding of web development principles. My passion is to create
+            efficient and user-friendly solutions that solve real-world
+            problems.
+          </p>
+          <p>Contact: 9661084858</p>
+        </div>
+      </section>
+
+      <section id="languages">
+        <h2>Languages</h2>
+        <div class="content">
+          <p><strong>English:</strong> Fluent</p>
+          <p><strong>Hindi:</strong> Native Speaker</p>
+          <p><strong>Urdu:</strong> Proficient</p>
+        </div>
+      </section>
+
+      <section id="computer-skills">
+        <h2>Computer Skills</h2>
+        <div class="content">
+          <ul>
+            <li>Windows Operating System</li>
+            <li>Mac Operating System</li>
+            <li>Microsoft Office</li>
+            <li>Tally Prime</li>
+            <li>Internet</li>
+            <li>Typing English 70 WPM</li>
+            <li>
+              Graphic Designing (Adobe Express, Illustrator, Photoshop, Light
+              Room, InDesign, Adobe XD)
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="programming-languages-skills">
+        <h2>Programming Languages Skills</h2>
+        <div class="content">
+          <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Python</li>
+            <li>C, C++, Java</li>
+            <li>Git & Github</li>
+            <li>CMD, Powershell, Terminal</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="academic">
+        <h2>Academic Qualifications</h2>
+        <div class="content">
+          <ul>
+            <li>H.S.C PASSED - BSEB BOARD PATNA (2019)</li>
+            <li>S.S.C PASSED - BSEB BOARD PATNA (2021)</li>
+            <li>B.S.C PASSED - MUNGER UNIVERSITY (2021-2024)</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="computer-certifications">
+        <h2>Computer Certifications</h2>
+        <div class="content">
+          <ul>
+            <li>Advance Diploma in Computer Application - Sai Softnet Patna</li>
+            <li>Digital Literacy - Government of Bihar</li>
+            <li>Domestic Data Entry Operator - Skill India</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="technical-skills">
+        <h2>Technical Skills</h2>
+        <div class="content">
+          <ul>
+            <li>Computer Operator</li>
+            <li>Electrician</li>
+            <li>Industrial Instument Electrician & Technician</li>
+            <li>CCTV Technician</li>
+            <li>Medical Lab Technician</li>
+            <li>Networking $ Remote Hosting</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+          <h3>Project 1: Digital Clock</h3>
+          <p>
+            <strong>Description:</strong> A sleek digital clock using HTML, CSS, and JavaScript.<br />
+            <strong>Technologies:</strong> HTML, CSS, JavaScript<br />
+            <strong>Link:</strong>
+            <a href="Web App/Digital_Clock.html" target="_blank">View Project</a>
+          </p>
+        </div>
+        <div class="project">
+          <h3>Project 2: Calculator</h3>
+          <p>
+            <strong>Description:</strong> A functional calculator built with HTML, CSS, and JavaScript.<br />
+            <strong>Technologies:</strong> HTML, CSS, JavaScript<br />
+            <strong>Link:</strong>
+            <a href="Web App/Modern_Calculator.html" target="_blank">View Project</a>
+          </p>
+        </div>
+        <div class="project">
+          <h3>Project 3: Complete Arithmetic Calculator</h3>
+          <p>
+            <strong>Description:</strong> An Arithmetic Calculation website developed using HTML, CSS, and JavaScript.<br />
+            <strong>Technologies:</strong> HTML, CSS, JavaScript<br />
+            <strong>Link:</strong>
+            <a href="Web App/Arithmetics_Math_Function.html" target="_blank">View Project</a>
+          </p>
+        </div>
+        <div class="project">
+          <h3>Project 4: Modern Age Calculator</h3>
+          <p>
+            <strong>Description:</strong> A Modern Age Calculator developed using HTML, CSS, and JavaScript.<br />
+            <strong>Technologies:</strong> HTML, CSS, JavaScript<br />
+            <strong>Link:</strong>
+            <a href="Web App/Age_Calculator.html"target="_blank">View Project</a>
+          </p>
+        </div>
+        <div class="project">
+          <h3>Project 5: Number Line App</h3>
+          <p>
+            <strong>Description:</strong> A Modern Number Line App developed using HTML, CSS, and JavaScript.<br />
+            <strong>Technologies:</strong> HTML, CSS, JavaScript<br />
+            <strong>Link:</strong>
+            <a href="Web App/Number_Line_Of_Mathematics.html"target="_blank">View Project</a>
+          </p>
+        </div>
+        <div class="project">
+          <h3>Project 6: Roman Numeral Converter App</h3>
+          <p>
+            <strong>Description:</strong> A Modern Roman Numeral Converter App developed using HTML, CSS, and JavaScript.<br />
+            <strong>Technologies:</strong> HTML, CSS, JavaScript<br />
+            <strong>Link:</strong>
+            <a href="Web App/Roman_Numeral_Converter.html"target="_blank">View Project</a>
+          </p>
+        </div>
+        <div class="project">
+          <h3>Project 7: Modern Study Web</h3>
+          <p>
+            <strong>Description:</strong> A Modern Study website developed using HTML, CSS, and JavaScript.<br />
+            <strong>Technologies:</strong> HTML, CSS, JavaScript<br />
+            <strong>Link:</strong>
+            <a href="Study Web/index.html"target="_blank">View Project</a>
+          </p>
+        </div>
+        <div class="project">
+          <h3>Project 8: BMI and Calorie Calculator</h3>
+          <p>
+            <strong>Description:</strong> A BMI and Calorie Calculator developed using HTML, CSS, and JavaScript.<br />
+            <strong>Technologies:</strong> HTML, CSS, JavaScript<br />
+            <strong>Link:</strong>
+            <a href="Web App/bmi_and_calorie_calculator.html"target="_blank">View Project</a>
+          </p>
+        </div>
+      </section>
+      
+    </div>
+    <footer>
+      <p>
+        &copy; 2024 Altamash Anwar Khan. All rights reserved. Contact:
+        9661084858
+      </p>
+    </footer>
+
+    <!-- JavaScript for smooth scrolling -->
+    <script>
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

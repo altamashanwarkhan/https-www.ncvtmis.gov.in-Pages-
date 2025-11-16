@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Functions</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #000;
+        color: #fff;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .operation {
+        margin-bottom: 20px;
+        background-color: #222;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+      }
+      .input-group {
+        margin-bottom: 10px;
+      }
+      button {
+        padding: 10px 20px;
+        margin-left: 10px;
+        cursor: pointer;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #111;
+      }
+      .result {
+        margin-top: 10px;
+        white-space: pre-wrap;
+        font-size: 1.2rem;
+        background-color: #333;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      h1,
+      h2 {
+        color: #0ff;
+        text-shadow: 2px 2px 4px #00f;
+      }
+      label {
+        color: #0ff;
+      }
+      input[type="number"],
+      input[type="text"] {
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #0ff;
+        background-color: #333;
+        color: #fff;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px #0ff;
+      }
+      footer {
+        text-align: center;
+        margin-top: 20px;
+        color: #999;
+      }
+      footer span {
+        color: #0ff;
+      }
+      .nav-links {
+        margin-bottom: 10px;
+        text-align: center;
+      }
+      .nav-links a {
+        color: #0ff;
+        text-decoration: none;
+        margin-right: 10px;
+        transition: color 0.3s ease;
+      }
+      .nav-links a:hover {
+        color: #00f;
+        text-shadow: 2px 2px 4px #00f; /* Added text-shadow to links on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Arithmetic Mathematics</h1>
+      <div class="nav-links">
+        <a href="#counting">Arithmetic Counting</a>
+        <a href="#table">Arithmetic Table</a>
+        <a href="#addNumbers">Add Many Numbers</a>
+        <a href="#subtractNumbers">Subtract Many Numbers</a>
+        <a href="#multiplyNumbers">Multiply Many Numbers</a>
+        <a href="#divideNumbers">Divide Many Numbers</a>
+        <a href="#squareNumber">Square Number</a>
+        <a href="#power">Power</a>
+        <a href="#squareRoot">Square Root</a>
+        <a href="#factorize">Factorization</a>
+        <a href="#lcmHcf">Calculate LCM and HCF</a>
+      </div>
+    </header>
+
+    <div class="container">
+      <div id="counting" class="operation">
+        <h2>Arithmetic Counting</h2>
+        <div class="input-group">
+          <label for="countInput">Ending Number:</label>
+          <input type="number" id="countInput" />
+          <button onclick="counting()">Count</button>
+        </div>
+        <p id="countResult" class="result"></p>
+      </div>
+
+      <div id="table" class="operation">
+        <h2>Arithmetic Table</h2>
+        <div class="input-group">
+          <label for="tableInput">Number:</label>
+          <input type="number" id="tableInput" />
+          <button onclick="table()">Generate Table</button>
+        </div>
+        <p id="tableResult" class="result"></p>
+      </div>
+
+      <div id="addNumbers" class="operation">
+        <h2>Add Many Numbers</h2>
+        <div class="input-group">
+          <label for="addNumbersInput">Enter numbers (comma separated):</label>
+          <input type="text" id="addNumbersInput" />
+          <button onclick="addNumbers()">Add</button>
+        </div>
+        <p id="addNumbersResult" class="result"></p>
+      </div>
+
+      <div id="subtractNumbers" class="operation">
+        <h2>Subtract Many Numbers</h2>
+        <div class="input-group">
+          <label for="subtractNumbersInput"
+            >Enter numbers (comma separated):</label
+          >
+          <input type="text" id="subtractNumbersInput" />
+          <button onclick="subtractNumbers()">Subtract</button>
+        </div>
+        <p id="subtractNumbersResult" class="result"></p>
+      </div>
+
+      <div id="multiplyNumbers" class="operation">
+        <h2>Multiply Many Numbers</h2>
+        <div class="input-group">
+          <label for="multiplyNumbersInput"
+            >Enter numbers (comma separated):</label
+          >
+          <input type="text" id="multiplyNumbersInput" />
+          <button onclick="multiplyNumbers()">Multiply</button>
+        </div>
+        <p id="multiplyNumbersResult" class="result"></p>
+      </div>
+
+      <div id="divideNumbers" class="operation">
+        <h2>Divide Many Numbers</h2>
+        <div class="input-group">
+          <label for="divideNumbersInput"
+            >Enter numbers (comma separated):</label
+          >
+          <input type="text" id="divideNumbersInput" />
+          <button onclick="divideNumbers()">Divide</button>
+        </div>
+        <p id="divideNumbersResult" class="result"></p>
+      </div>
+
+      <div id="squareNumber" class="operation">
+        <h2>Square Number</h2>
+        <div class="input-group">
+          <label for="squareNumberInput">Enter a number:</label>
+          <input type="number" id="squareNumberInput" />
+          <button onclick="squareNumber()">Square</button>
+        </div>
+        <p id="squareNumberResult" class="result"></p>
+      </div>
+
+      <div id="power" class="operation">
+        <h2>Power</h2>
+        <div class="input-group">
+          <label for="powerBaseInput">Base:</label>
+          <input type="number" id="powerBaseInput" />
+          <label for="powerExponentInput">Exponent:</label>
+          <input type="number" id="powerExponentInput" />
+          <button onclick="power()">Calculate Power</button>
+        </div>
+        <p id="powerResult" class="result"></p>
+      </div>
+
+      <div id="squareRoot" class="operation">
+        <h2>Square Root</h2>
+        <div class="input-group">
+          <label for="squareRootInput">Enter a number:</label>
+          <input type="number" id="squareRootInput" />
+          <button onclick="squareRoot()">Calculate Square Root</button>
+        </div>
+        <p id="squareRootResult" class="result"></p>
+      </div>
+
+      <div id="factorize" class="operation">
+        <h2>Factorization</h2>
+        <div class="input-group">
+          <label for="factorizeInput">Enter a number:</label>
+          <input type="number" id="factorizeInput" />
+          <button onclick="factorize()">Factorize</button>
+        </div>
+        <p id="factorizeResult" class="result"></p>
+      </div>
+
+      <div id="lcmHcf" class="operation">
+        <h2>Calculate LCM and HCF</h2>
+        <div class="input-group">
+          <label for="lcmHcfInput">Enter numbers (comma separated):</label>
+          <input type="text" id="lcmHcfInput" />
+          <button onclick="calculateLCMAndHCF()">
+            Calculate LCM &amp; HCF
+          </button>
+        </div>
+        <p id="lcmHcfResult" class="result"></p>
+      </div>
+    </div>
+
+    <footer>&copy; 2024 ALTAMASH ANWAR KHAN | JavaScript Math Functions</footer>
+
+    <script>
+      // Function to perform Arithmetic Counting
+      function counting() {
+        const startNumber = parseInt(
+          document.getElementById("countInput").value
+        );
+        if (isNaN(startNumber)) {
+          document.getElementById("countResult").textContent =
+            "Please enter a valid number.";
+          return;
+        }
+
+        let result = "";
+        for (let i = 0; i <= startNumber; i++) {
+          result += i + " ";
+        }
+        document.getElementById("countResult").textContent = result;
+      }
+
+      // Function to generate Arithmetic Table
+      function table() {
+        const number = parseInt(document.getElementById("tableInput").value);
+        if (isNaN(number)) {
+          document.getElementById("tableResult").textContent =
+            "Please enter a valid number.";
+          return;
+        }
+
+        let result = "";
+        for (let i = 1; i <= 10; i++) {
+          result += number + " x " + i + " = " + number * i + "\n";
+        }
+        document.getElementById("tableResult").textContent = result;
+      }
+
+      // Function to Add Many Numbers
+      function addNumbers() {
+        const numbers = document
+          .getElementById("addNumbersInput")
+          .value.split(",");
+        let sum = 0;
+        for (let i = 0; i < numbers.length; i++) {
+          sum += parseFloat(numbers[i].trim());
+        }
+        document.getElementById("addNumbersResult").textContent = "Sum: " + sum;
+      }
+
+      // Function to Subtract Many Numbers
+      function subtractNumbers() {
+        const numbers = document
+          .getElementById("subtractNumbersInput")
+          .value.split(",");
+        let result = parseFloat(numbers[0].trim());
+        for (let i = 1; i < numbers.length; i++) {
+          result -= parseFloat(numbers[i].trim());
+        }
+        document.getElementById("subtractNumbersResult").textContent =
+          "Result: " + result;
+      }
+
+      // Function to Multiply Many Numbers
+      function multiplyNumbers() {
+        const numbers = document
+          .getElementById("multiplyNumbersInput")
+          .value.split(",");
+        let result = 1;
+        for (let i = 0; i < numbers.length; i++) {
+          result *= parseFloat(numbers[i].trim());
+        }
+        document.getElementById("multiplyNumbersResult").textContent =
+          "Result: " + result;
+      }
+
+      // Function to Divide Many Numbers
+      function divideNumbers() {
+        const numbers = document
+          .getElementById("divideNumbersInput")
+          .value.split(",");
+        let result = parseFloat(numbers[0].trim());
+        for (let i = 1; i < numbers.length; i++) {
+          const num = parseFloat(numbers[i].trim());
+          if (num !== 0) {
+            result /= num;
+          }
+        }
+        document.getElementById("divideNumbersResult").textContent =
+          "Result: " + result;
+      }
+
+      // Function to Square a Number
+      function squareNumber() {
+        const number = parseInt(
+          document.getElementById("squareNumberInput").value
+        );
+        if (isNaN(number)) {
+          document.getElementById("squareNumberResult").textContent =
+            "Please enter a valid number.";
+          return;
+        }
+
+        const result = number * number;
+        document.getElementById("squareNumberResult").textContent =
+          "Square: " + result;
+      }
+
+      // Function to Calculate Power
+      function power() {
+        const base = parseInt(document.getElementById("powerBaseInput").value);
+        const exponent = parseInt(
+          document.getElementById("powerExponentInput").value
+        );
+        if (isNaN(base) || isNaN(exponent)) {
+          document.getElementById("powerResult").textContent =
+            "Please enter valid base and exponent.";
+          return;
+        }
+
+        const result = Math.pow(base, exponent);
+        document.getElementById("powerResult").textContent =
+          "Result: " + result;
+      }
+
+      // Function to Calculate Square Root
+      function squareRoot() {
+        const number = parseInt(
+          document.getElementById("squareRootInput").value
+        );
+        if (isNaN(number)) {
+          document.getElementById("squareRootResult").textContent =
+            "Please enter a valid number.";
+          return;
+        }
+
+        const result = Math.sqrt(number);
+        document.getElementById("squareRootResult").textContent =
+          "Square Root: " + result;
+      }
+
+      // Function to Perform Factorization
+      function factorize() {
+        const number = parseInt(
+          document.getElementById("factorizeInput").value
+        );
+        if (isNaN(number) || number <= 0) {
+          document.getElementById("factorizeResult").textContent =
+            "Please enter a valid positive number.";
+          return;
+        }
+
+        let result = "Factors: ";
+        for (let i = 1; i <= number; i++) {
+          if (number % i === 0) {
+            result += i + " ";
+          }
+        }
+        document.getElementById("factorizeResult").textContent = result;
+      }
+
+      // Function to Calculate LCM and HCF
+      function calculateLCMAndHCF() {
+        const numbers = document.getElementById("lcmHcfInput").value.split(",");
+        const parsedNumbers = numbers.map((num) => parseInt(num.trim()));
+
+        let gcd = function (a, b) {
+          return b ? gcd(b, a % b) : a;
+        };
+
+        const lcm = (a, b) => (a * b) / gcd(a, b);
+
+        let lcmResult = parsedNumbers[0];
+        let hcfResult = parsedNumbers[0];
+
+        for (let i = 1; i < parsedNumbers.length; i++) {
+          lcmResult = lcm(lcmResult, parsedNumbers[i]);
+          hcfResult = gcd(hcfResult, parsedNumbers[i]);
+        }
+
+        document.getElementById(
+          "lcmHcfResult"
+        ).textContent = `LCM: ${lcmResult}, HCF: ${hcfResult}`;
+      }
+    </script>
+  </body>
+</html>

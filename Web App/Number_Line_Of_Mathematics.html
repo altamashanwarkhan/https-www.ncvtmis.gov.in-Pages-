@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Number Line</title>
+  <style>/* styles.css */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    h1 {
+      color: #333;
+    }
+    
+    .number-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: #dcdcdc;
+    }
+    
+    #prev-btn, #next-btn {
+      background-color: #007bff;
+      color: white;
+      margin: 0 10px;
+    }
+    
+    #reset-btn {
+      background-color: #dc3545;
+      color: white;
+    }
+    
+    #number-display {
+      font-size: 24px;
+      margin: 0 20px;
+      color: #007bff;
+    }
+    
+    #number-in-words {
+      font-size: 18px;
+      color: #555;
+      margin-top: 20px;
+      font-style: italic;
+    }
+    
+    #odd-even-status {
+      font-size: 16px;
+      color: #333;
+      margin-top: 10px;
+    }
+    
+    .manual-input {
+      margin-top: 20px;
+    }
+    
+    #number-input {
+      padding: 8px 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 150px;
+    }
+    
+    #submit-btn {
+      background-color: #28a745;
+      color: white;
+      margin-left: 10px;
+      padding: 10px 20px;
+    }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Interactive Number Line</h1>
+    <div class="number-line">
+      <button id="prev-btn">Previous</button>
+      <span id="number-display">0</span>
+      <button id="next-btn">Next</button>
+    </div>
+    <button id="reset-btn" class="reset">Reset</button>
+    <p id="number-in-words">Zero</p>
+    <p id="odd-even-status">Even</p>
+    <div class="manual-input">
+      <input type="number" id="number-input" placeholder="Enter a number" />
+      <button id="submit-btn">Submit</button>
+    </div>
+  </div>
+  <script>// script.js
+    let currentNumber = 0;
+    
+    const numberDisplay = document.getElementById("number-display");
+    const numberInWords = document.getElementById("number-in-words");
+    const oddEvenStatus = document.getElementById("odd-even-status");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+    const resetBtn = document.getElementById("reset-btn");
+    const numberInput = document.getElementById("number-input");
+    const submitBtn = document.getElementById("submit-btn");
+    
+    // Function to convert numbers to words (now includes lakh and crore)
+    function numberToWords(num) {
+      if (num === 0) return "Zero";
+    
+      const ones = [
+        "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine",
+      ];
+      const teens = [
+        "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", 
+        "Seventeen", "Eighteen", "Nineteen",
+      ];
+      const tens = [
+        "", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", 
+        "Eighty", "Ninety",
+      ];
+      
+      function convertToWords(n) {
+        if (n < 10) return ones[n];
+        if (n < 20) return teens[n - 10];
+        if (n < 100) {
+          return tens[Math.floor(n / 10)] + (n % 10 !== 0 ? " " + ones[n % 10] : "");
+        }
+        if (n < 1000) {
+          return ones[Math.floor(n / 100)] + " Hundred" + 
+                 (n % 100 !== 0 ? " and " + convertToWords(n % 100) : "");
+        }
+        if (n < 100000) {
+          return convertToWords(Math.floor(n / 1000)) + " Thousand" + 
+                 (n % 1000 !== 0 ? " " + convertToWords(n % 1000) : "");
+        }
+        if (n < 10000000) {
+          return convertToWords(Math.floor(n / 100000)) + " Lakh" + 
+                 (n % 100000 !== 0 ? " " + convertToWords(n % 100000) : "");
+        }
+        if (n < 1000000000) {
+          return convertToWords(Math.floor(n / 10000000)) + " Crore" + 
+                 (n % 10000000 !== 0 ? " " + convertToWords(n % 10000000) : "");
+        }
+        return "Number too large";
+      }
+    
+      if (num < 0) return "Negative " + convertToWords(Math.abs(num));
+      return convertToWords(num);
+    }
+    
+    // Check if a number is odd or even
+    function checkOddEven(num) {
+      return num % 2 === 0 ? "Even" : "Odd";
+    }
+    
+    // Update the number display
+    function updateDisplay() {
+      numberDisplay.textContent = currentNumber;
+      numberInWords.textContent = numberToWords(currentNumber);
+      oddEvenStatus.textContent = `This number is ${checkOddEven(currentNumber)}`;
+    }
+    
+    // Previous button functionality
+    prevBtn.addEventListener("click", () => {
+      currentNumber--;
+      updateDisplay();
+    });
+    
+    // Next button functionality
+    nextBtn.addEventListener("click", () => {
+      currentNumber++;
+      updateDisplay();
+    });
+    
+    // Reset button functionality
+    resetBtn.addEventListener("click", () => {
+      currentNumber = 0;
+      updateDisplay();
+    });
+    
+    // Submit button functionality
+    submitBtn.addEventListener("click", () => {
+      const userInput = parseInt(numberInput.value, 10);
+      if (!isNaN(userInput)) {
+        currentNumber = userInput;
+        updateDisplay();
+        numberInput.value = ""; // Clear the input field
+      } else {
+        alert("Please enter a valid number.");
+      }
+    });
+    
+    // Initialize display
+    updateDisplay();
+    </script>
+</body>
+</html>

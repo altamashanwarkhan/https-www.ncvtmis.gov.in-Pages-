@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Hub</title>
+    <style>/* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        /* Theme Variables */
+        :root {
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --sidebar-bg: rgba(255, 255, 255, 0.8);
+            --sidebar-hover: rgba(0, 0, 0, 0.1);
+        }
+        
+        body.dark-mode {
+            --bg-color: #1e1e2f;
+            --text-color: #f4f4f4;
+            --sidebar-bg: rgba(0, 0, 0, 0.8);
+            --sidebar-hover: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: var(--sidebar-bg);
+            color: var(--text-color);
+            position: fixed;
+            height: 100%;
+            padding: 20px;
+            overflow-y: auto;
+            backdrop-filter: blur(10px);
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .sidebar .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .sidebar .menu {
+            list-style: none;
+        }
+        
+        .sidebar .menu li {
+            margin-bottom: 15px;
+        }
+        
+        .sidebar .menu a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 16px;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        .sidebar .menu a:hover {
+            background-color: var(--sidebar-hover);
+        }
+        
+        .sidebar .menu .dropdown-menu {
+            display: none;
+            list-style: none;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .sidebar .menu .dropdown.active .dropdown-menu {
+            display: block;
+        }
+        
+        .sidebar .menu .dropdown-menu a {
+            font-size: 14px;
+        }
+        
+        #theme-toggle {
+            margin-top: 20px;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            color: var(--text-color);
+            background-color: transparent;
+            border: 1px solid var(--text-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        #theme-toggle:hover {
+            background-color: var(--sidebar-hover);
+        }
+        
+        /* Main Content */
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            overflow-y: auto;
+            flex: 1;
+        }
+        
+        header {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        
+        section {
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            transition: background 0.3s;
+        }
+        
+        body.dark-mode section {
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .banner-image {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>Education Hub</h2>
+            </div>
+            <ul class="menu">
+                <li><a href="#home">Home</a></li>
+                <li class="dropdown">
+                    <a href="#courses">Courses</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#computer-hardware-and-internet-&-telecommunication-technology">Computer Hardware and Internet & Telecommunication Technology</a></li>
+                        <li><a href="#graphic-designing">Graphic Designing</a></li>
+                        <li><a href="#os-development">OS Development</a></li>
+                        <li><a href="#android-development">Android Development</a></li>
+                        <li><a href="#ai-development">AI Development</a></li>
+                        <li><a href="#frontend-development">Frontend Web Development</a></li>
+                        <li><a href="#backend-development">Backend Web Development</a></li>
+                        <li><a href="#version-control">Version Control System</a></li>
+                    </ul>
+                </li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button id="theme-toggle">Switch Theme</button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Header -->
+            <header>
+                <h1>Welcome to Education Hub</h1>
+                <p>Your one-stop solution for learning and excelling in the tech world.</p>
+            </header>
+
+            <!-- Home Section -->
+            <section id="home" class="section">
+                <h2>Explore Our Resources</h2>
+                <p>
+                    Education Hub provides a curated collection of courses and resources 
+                    for aspiring developers, designers, and tech enthusiasts. 
+                </p>
+                <img src="computer image.jpg" alt="Educational Hub" class="banner-image">
+            </section>
+
+            <!-- Courses Section -->
+            <section id="courses" class="section">
+                <h2>Courses</h2>
+                <p>
+                    Explore a wide variety of courses designed to help you succeed in your tech journey.
+                </p>
+                <hr>
+                    <h4>Computer Hardware and Internet & Telecommunication Technology</h4>
+                    <h4>Graphic Designing</h4>
+                    <h4>OS Development</h4>
+                    <h4>Android Development</h4>
+                    <h4>AI Development</h4>
+                    <h4>Frontend Web Development</h4>
+                    <h4>Backend Web Development</h4>
+                    <h4>Version Control System</h4>
+                
+            </section>
+
+            <!-- Individual Course Sections -->
+            <section id="compuuter-hardware and internet & telecommunication technology" class="section">
+                <h2>Computer Hardware and Internet and Telecommunication Technology</h2>
+                <p>
+                    Learn the basics of computer hardware, networking, and telecommunication technology.
+                </p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=gBkSMriBwLhy6NPD&amp;list=PL1FRlSMaHP4pob3xmxG1nVCmD1Eg77PjZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=i0n2_ffY_wIKpBj0&amp;list=PLuUdFsbOK_8pWzW7KJjbiJ8Ow0cdHlApV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </section>
+
+            <section id="graphic-designing" class="section">
+                <h2>Graphic Designing</h2>
+                <p>
+                    Learn the principles of design and master tools like Adobe Photoshop, Illustrator, and Figma to create stunning visuals.
+                </p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=jCzFsMljMNAi6WnV&amp;list=PL1FRlSMaHP4oBzf4WKWd6o-E7WQkHERjV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=kPW-EzRhI0E9ow6h&amp;list=PL1FRlSMaHP4qXuAXNJIC2zLYl7Y12jL2r" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=6Wwqsife30zcfySi&amp;list=PLW-zSkCnZ-gDeLkJH0q1BoS4eS1HGrdwQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=qPHPbKDhSXvCNAKr&amp;list=PLW-zSkCnZ-gBJr41U_lSWZO7AHCnU4D0I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=-8aglKGCegC81PqO&amp;list=PLW-zSkCnZ-gCDj0DhrC9DrsVtndLuntdj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=xICCU6JBDCPNq3XS&amp;list=PLW-zSkCnZ-gD5TDfs1eL5EnH2mQ0f9g6B" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=ADXsfFjLx0pRI6KH&amp;list=PLLlSBGLVsEPIFGSGw2zJ2K43V5vxMMMTE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </section>
+
+            <section id="os-development" class="section">
+                <h2>Operating System Development</h2>
+                <p>
+                    Build your own operating systems and learn the internals of OS using languages like C and Go.
+                </p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=TmAwAnSkcoLkmpRO&amp;list=PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=In_aQUVSDddJhLHK&amp;list=PLfqMhTWNBTe137I_EPQd34TsgV6IO55pt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    
+            </section>
+
+            <section id="android-development" class="section">
+                <h2>Android Development</h2>
+                <p>
+                    Create modern Android apps using Java and Kotlin with this hands-on course.
+                </p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLfqMhTWNBTe3LtFWcvwpqTkUSlB32kJop" 
+                    title="Android Development Playlist" allowfullscreen></iframe>
+            </section>
+
+            <section id="ai-development" class="section">
+                <h2>Artificial Intelligence</h2>
+                <p>
+                    Dive into AI and machine learning with Python. Explore real-world applications and projects.
+                </p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLGjplNEQ1it8-0CmoljS5yeV-GlKSUEt0" 
+                    title="AI Development Playlist" allowfullscreen></iframe>
+            </section>
+
+            <section id="frontend-development" class="section">
+                <h2>Frontend Web Development</h2>
+                <p>
+                    Learn HTML, CSS, JavaScript, and frameworks like React to design and build interactive web pages.
+                </p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=JCmao9JKQwdBgU9Q&amp;list=PLfqMhTWNBTe0PY9xunOzsP5kmYIz2Hu7i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=jPbarAaeiZ4Eh-pt&amp;list=PL1FRlSMaHP4ocszZ6kEup1q3e3dV-uKda" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </section>
+
+            <section id="backend-development" class="section">
+                <h2>Backend Web Development</h2>
+                <p>
+                    Master server-side programming, APIs, and database management with Node.js, Django, and SQL.
+                </p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/hlGoQC332VM?si=ZxcjCmqRVB80lBpq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=Zb81A0yBBmqUmhTH&amp;list=PLu0W_9lII9aikXkRE0WxDt1vozo3hnmtR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                
+            </section>
+
+            <section id="version-control" class="section">
+                <h2>Version Control Systems</h2>
+                <p>
+                    Manage and collaborate on code effectively using Git and GitHub.
+                </p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Ez8F0nW6S-w" 
+                    title="Version Control Playlist" allowfullscreen></iframe>
+            </section>
+
+            <section id="Refrence-Link" class="section">
+                <h2>Refrance Website Link</h2>
+                <p>
+                    Support by website.
+                </p>
+                <a href="https://www.blackmagicdesign.com/in/products/davinciresolve/training" target="_blank">Do you want to learn Video Editting click on</a>
+                <br>
+                <a href="https://www.w3schools.com/" target="_blank">W3Schools</a>
+                <br>
+                <a href="https://developer.mozilla.org/en-US/" target="_blank">MDN Web Docs</a>
+                
+            </section>
+
+            <!-- About Us Section -->
+            <section id="about" class="section">
+                <h2>About Us</h2>
+                <p>
+                    Education Hub is a platform dedicated to providing high-quality learning materials 
+                    for students and professionals aiming to excel in technology.
+                </p>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="section">
+                <h2>Contact Us</h2>
+                <p>Email: <a href="mailto:altamashanwarkhan@gmail.com">altamashanwarkhan@gmail.com</a></p>
+                <p>Phone: +91 9661084858</p>
+                <p>WhatsApp: +91 9229953434</p>
+            </section>
+        </main>
+    </div>
+
+    <script>document.addEventListener("DOMContentLoaded", () => {
+        // Handle dropdown toggle
+        const dropdowns = document.querySelectorAll(".dropdown");
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener("click", () => {
+                dropdown.classList.toggle("active");
+            });
+        });
+    
+        // Handle theme toggle
+        const themeToggle = document.getElementById("theme-toggle");
+        themeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+        });
+    });
+    </script>
+</body>
+</html>

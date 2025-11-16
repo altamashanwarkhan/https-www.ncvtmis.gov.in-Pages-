@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI and Calorie Calculator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #222;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 18px;
+            box-sizing: border-box;
+        }
+
+        input:focus, select:focus {
+            border-color: #007BFF;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .error {
+            border-color: red !important;
+            box-shadow: 0 0 5px rgba(255, 0, 0, 0.5) !important;
+        }
+
+        .toggle-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .toggle-container label {
+            font-size: 16px;
+            color: #444;
+        }
+
+        .toggle-container input {
+            margin-left: 10px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #444;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BMI and Calorie Calculator</h1>
+        <input type="number" id="weight" placeholder="Weight (kg)" />
+        <input type="number" id="heightInFeet" placeholder="Height (feet)" />
+        <input type="number" id="heightInInches" placeholder="Height (inches)" />
+        <input type="number" id="age" placeholder="Age (years)" />
+        <select id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <select id="activityLevel">
+            <option value="1.2">1 Day/Week</option>
+            <option value="1.375">2 Days/Week</option>
+            <option value="1.55">3 Days/Week</option>
+            <option value="1.725">4-5 Days/Week</option>
+            <option value="1.9">6-7 Days/Week</option>
+        </select>
+        <select id="goalCategory">
+            <option value="maintenance">Maintenance</option>
+            <option value="fatLoss">Fat Loss</option>
+            <option value="muscleGain">Muscle Gain</option>
+            <option value="weightLoss">Weight Loss</option>
+            <option value="weightGain">Weight Gain</option>
+        </select>
+        <button onclick="calculate()">Calculate</button>
+        <div class="result" id="result"></div>
+        <div class="result" id="caloriesResult"></div>
+        <div class="result" id="macrosResult"></div>
+    </div>
+
+    <script>
+        function calculate() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const heightInFeet = parseFloat(document.getElementById('heightInFeet').value);
+            const heightInInches = parseFloat(document.getElementById('heightInInches').value);
+            const age = parseInt(document.getElementById('age').value);
+            const gender = document.getElementById('gender').value;
+            const activityLevel = parseFloat(document.getElementById('activityLevel').value);
+            const goalCategory = document.getElementById('goalCategory').value;
+
+            // Validate inputs
+            if (!weight || !heightInFeet || !heightInInches || !age || !gender || !activityLevel || !goalCategory) {
+                document.getElementById('result').textContent = 'Please fill in all fields.';
+                document.getElementById('caloriesResult').textContent = '';
+                document.getElementById('macrosResult').textContent = '';
+                return;
+            }
+
+            if (isNaN(weight) || isNaN(heightInFeet) || isNaN(heightInInches) || weight <= 0 || heightInFeet < 0 || heightInInches < 0 || age <= 0 || activityLevel <= 0) {
+                document.getElementById('result').textContent = 'Please enter valid values for weight, height, and age.';
+                document.getElementById('caloriesResult').textContent = '';
+                document.getElementById('macrosResult').textContent = '';
+                return;
+            }
+
+            const heightInMeters = ((heightInFeet * 12 + heightInInches) * 0.0254); // Convert feet and inches to meters
+
+            // Calculate BMI
+            const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(2); // Corrected BMI formula
+            let category = '';
+
+            if (bmi < 18.5) {
+                category = 'Underweight';
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                category = 'Normal weight';
+            } else if (bmi >= 25 && bmi < 29.9) {
+                category = 'Overweight';
+            } else {
+                category = 'Obesity';
+            }
+
+            document.getElementById('result').textContent = `Your BMI is ${bmi} (${category}).`;
+
+            // If age and activity level are provided, calculate calories
+            if (!isNaN(age) && !isNaN(activityLevel)) {
+                let bmr;
+                if (gender === 'male') {
+                    bmr = 10 * weight + 6.25 * (heightInMeters * 100) - 5 * age + 5; // Corrected height to cm
+                } else {
+                    bmr = 10 * weight + 6.25 * (heightInMeters * 100) - 5 * age - 161; // Corrected height to cm
+                }
+
+                const maintenanceCalories = bmr * activityLevel;
+                let targetCalories;
+
+                if (goalCategory === 'maintenance') {
+                    targetCalories = maintenanceCalories;
+                } else if (goalCategory === 'fatLoss') {
+                    targetCalories = maintenanceCalories - 500; // Fat loss: 500 kcal deficit
+                } else if (goalCategory === 'muscleGain') {
+                    targetCalories = maintenanceCalories + 300; // Muscle gain: 300 kcal surplus
+                } else if (goalCategory === 'weightLoss') {
+                    targetCalories = maintenanceCalories - 300; // Weight loss: 300 kcal deficit
+                } else if (goalCategory === 'weightGain') {
+                    targetCalories = maintenanceCalories + 150; // Weight gain: 150 kcal surplus
+                }
+
+                const proteinCalories = targetCalories * 0.35; // 35% of calories from protein
+                const fatCalories = targetCalories * 0.25; // 25% of calories from fat
+                const carbCalories = targetCalories * 0.40; // 40% of calories from carbs
+
+                const proteinGrams = (proteinCalories / 4).toFixed(1); // 4 kcal per gram of protein
+                const fatGrams = (fatCalories / 9).toFixed(1); // 9 kcal per gram of fat
+                const carbGrams = (carbCalories / 4).toFixed(1); // 4 kcal per gram of carbs
+
+                document.getElementById('macrosResult').innerHTML = `
+                    Target Calories: ${Math.round(targetCalories)} kcal<br>
+                    Protein: ${proteinGrams} g<br>
+                    Fat: ${fatGrams} g<br>
+                    Carbohydrates: ${carbGrams} g
+                `;
+            } else {
+                document.getElementById('macrosResult').textContent = '';
+            }
+        }
+    </script>
+</body>
+</html>

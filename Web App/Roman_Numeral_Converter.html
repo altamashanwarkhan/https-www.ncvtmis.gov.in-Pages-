@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roman Numeral Converter</title>
+    <style>body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f8ff;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #333;
+    }
+    
+    .container {
+        text-align: center;
+        background: #fff;
+        padding: 20px 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    h1 {
+        margin-bottom: 20px;
+        color: #4caf50;
+    }
+    
+    input {
+        width: 80%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+    
+    button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    
+    button:hover {
+        background-color: #45a049;
+    }
+    
+    #result {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Roman Numeral Converter</h1>
+        <input type="number" id="numberInput" placeholder="Enter a number (1-3999)" min="1" max="3999">
+        <button id="convertBtn">Convert to Roman</button>
+        <div id="result"></div>
+    </div>
+    <script>// Function to convert a number to Roman numerals
+        function convertToRoman(num) {
+            const romanNumerals = [
+                { value: 1000, numeral: "M" },
+                { value: 900, numeral: "CM" },
+                { value: 500, numeral: "D" },
+                { value: 400, numeral: "CD" },
+                { value: 100, numeral: "C" },
+                { value: 90, numeral: "XC" },
+                { value: 50, numeral: "L" },
+                { value: 40, numeral: "XL" },
+                { value: 10, numeral: "X" },
+                { value: 9, numeral: "IX" },
+                { value: 5, numeral: "V" },
+                { value: 4, numeral: "IV" },
+                { value: 1, numeral: "I" },
+            ];
+        
+            let result = "";
+            for (let i = 0; i < romanNumerals.length; i++) {
+                while (num >= romanNumerals[i].value) {
+                    result += romanNumerals[i].numeral;
+                    num -= romanNumerals[i].value;
+                }
+            }
+            return result;
+        }
+        
+        // Event listener for the button
+        document.getElementById("convertBtn").addEventListener("click", () => {
+            const numberInput = document.getElementById("numberInput").value;
+            const resultDiv = document.getElementById("result");
+        
+            if (numberInput === "" || numberInput < 1 || numberInput > 3999) {
+                resultDiv.textContent = "Please enter a number between 1 and 3999.";
+                resultDiv.style.color = "red";
+            } else {
+                const romanNumeral = convertToRoman(parseInt(numberInput, 10));
+                resultDiv.textContent = `Roman Numeral: ${romanNumeral}`;
+                resultDiv.style.color = "green";
+            }
+        });
+        </script>
+</body>
+</html>
