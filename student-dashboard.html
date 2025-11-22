@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">StudentPortal</div>
+        <div class="nav-links">
+            <span id="user-name-display" style="margin-right: 15px;">Welcome, Student</span>
+            <a href="#" id="logout-btn" class="btn btn-danger" style="padding: 5px 15px; font-size: 0.9rem;">Logout</a>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <h3>Categories</h3>
+            <ul>
+                <li><a href="#" class="category-link active" data-category="All">All Courses</a></li>
+                <li><a href="#" class="category-link" data-category="Graphic Designing">Graphic Designing</a></li>
+                <li><a href="#" class="category-link" data-category="Video Editing">Video Editing</a></li>
+                <li><a href="#" class="category-link" data-category="Programming">Programming</a></li>
+                <li><a href="#" class="category-link" data-category="Microsoft Office">Microsoft Office</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="search-bar">
+                <input type="text" id="course-search" placeholder="Search for courses...">
+                <button class="btn btn-primary">Search</button>
+            </div>
+
+            <div id="student-courses-container" class="courses-grid">
+                <!-- Populated by JS -->
+            </div>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
